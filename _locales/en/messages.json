@@ -3635,7 +3635,7 @@
     "configurationMag": {
         "message": "Compass (MAG)"
     },
-    "configurationMagCalibrateButton": {
+    "configurationCalibrateMagButton": {
         "message": "Calibrate Mag"
     },
     "configurationMagCalibratedCheckbox": {
@@ -3701,8 +3701,11 @@
     "configurationTiltMaxAngle": {
         "message": "Maximum Allowed Angle (degrees)"
     },
-    "DISPLAY": {
+    "featureDisplay": {
         "message": "DISPLAY"
+    },
+    "featureDebug": {
+        "message": "DEBUG (Only exprets)"
     },
     "featureEnabled": {
         "message": "Enabled"
