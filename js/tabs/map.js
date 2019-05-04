@@ -1,29 +1,34 @@
+var radius = 20;
+var defaultCenter = [8.535850, 47.403583];
+
 // create a layer with the OSM source
 var layer = new ol.layer.Tile({
     source: new ol.source.OSM()
 });
 
 // center on london, transforming to map projection
-var center = ol.proj.transform([8.535850, 47.403583], 'EPSG:4326', 'EPSG:3857');
+var center = ol.proj.transform(defaultCenter, 'EPSG:4326', 'EPSG:3857');
 
 // view, starting at the center
 var view = new ol.View({
     center: center,
-    zoom: 15
+    zoom: 18
 });
+
+// ICONS
 
 var iconFeatures = [];
 
-var iconFeature = new ol.Feature({
-    geometry: new ol.geom.Point(ol.proj.transform([8.535850, 47.403583], 'EPSG:4326', 'EPSG:3857')),
+var iconTrackerFeature = new ol.Feature({
+    geometry: new ol.geom.Point(center),
     name: 'Tracker'
 });
 
-iconFeatures.push(iconFeature);
+iconFeatures.push(iconTrackerFeature);
 
 var iconStyle = new ol.style.Style({
     image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-        anchor: [1, 1],
+        anchor: [0.5, 0.5],
         anchorXUnits: 'fraction',
         anchorYUnits: 'fraction',
         scale: 0.15,
@@ -31,22 +36,59 @@ var iconStyle = new ol.style.Style({
     }))
 });
 
-var vectorSource = new ol.source.Vector({
+var iconsSource = new ol.source.Vector({
+    projection: 'EPSG:4326',
     features: iconFeatures //add an array of features
 });
 
-var vectorLayer = new ol.layer.Vector({
-    source: vectorSource,
+var iconsLayer = new ol.layer.Vector({
+    source: iconsSource,
     style: iconStyle
 });
+
+// SIM HELPERS
+var helperFeatures = [];
+
+var circle = new ol.geom.Circle(center, radius);
+var circleFeature = new ol.Feature(circle);
+
+helperFeatures.push(circleFeature);
+
+var helperSource = new ol.source.Vector({
+    projection: 'EPSG:4326',
+    features: helperFeatures //add an array of features
+});
+
+var helperLayer = new ol.layer.Vector({
+    source: helperSource
+});
+
+//var centerLongitudeLatitude = ol.proj.fromLonLat([8.535850, 47.403583]);
+//var layer = new ol.layer.Vector({
+//  source: new ol.source.Vector({
+//    projection: 'EPSG:4326',
+//    features: [new ol.Feature(new ol.geom.Circle(centerLongitudeLatitude, 4000))]
+//  }),
+//  style: [
+//    new ol.style.Style({
+//      stroke: new ol.style.Stroke({
+//        color: 'blue',
+//        width: 3
+//      }),
+//      fill: new ol.style.Fill({
+//        color: 'rgba(0, 0, 255, 0.1)'
+//      })
+//    })
+//  ]
+//});
 
 // finally, the map with our custom interactions, controls and overlays
 var map = new ol.Map({
     target: 'map',
-    layers: [layer, vectorLayer],
-    view: view
+    layers: [layer, helperLayer, iconsLayer],
+    view: view,
+    units: 'm'
 });
-
 
 window.addEventListener('message', function (e) {
     var data = e.data;
@@ -69,13 +111,14 @@ window.addEventListener('message', function (e) {
                 map.setZoom(zoom);
                 break;
             case 'center':
-                iconFeature.setGeometry(new ol.geom.Point(ol.proj.transform([e.data.lon, e.data.lat], 'EPSG:4326', 'EPSG:3857')));
+                iconTrackerFeature.setGeometry(new ol.geom.Point(ol.proj.transform([e.data.lon, e.data.lat], 'EPSG:4326', 'EPSG:3857')));
                 //view.setCenter(ol.proj.transform([e.data.lon, e.data.lat], 'EPSG:4326', 'EPSG:3857'));
         }
     } catch (e) {
         console.log('message error');
     }
 });
+
 
 //addMarker(8.535850, 47.403583);
 
