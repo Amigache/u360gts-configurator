@@ -3634,11 +3634,8 @@
     "configurationTiltMaxAngle": {
         "message": "Ángulo Máximo Permitido (grados)"
     },
-    "featureDisplay": {
-        "message": "MONITOR"
-    },
     "featureDebug": {
-        "message": "DEBUG"
+        "message": "Debug (Sólo expertos)"
     },
     "featureEnabled": {
         "message": "Habilitado"
@@ -3683,5 +3680,125 @@
     },
     "cpuFreq": {
         "message": "CPU:"
+    },
+    "settingsDisplay": {
+        "message": "Monitor"
+    },
+    "settingsGPS": {
+        "message": "GPS Local"
+    },
+    "settingsGPSProvider": {
+        "message": "Protocolo"
+    },
+    "settingsGPSAutoConfigure": {
+        "message": "Auto Configurar Protocolo"
+    },
+    "settingsGPSAutoBaud": {
+        "message": "Auto Configurar Baudios"
+    },
+    "settingsGPSBaudRate": {
+        "message": "Velocidad de Transmisión (Baudios)"
+    },
+    "settingsGPSMinSats": {
+        "message": "Número Mínimo de Satéltes"
+    },
+    "settingsMagneticDeclination": {
+        "message": "Declinación Magnética (Ejemplo.: -1.19º => -119)\u003C/br>\u003Ca href=\"http://www.magnetic-declination.com\" target=\"_blank\">http://www.magnetic-declination.com/\u003C/a>"
+    },
+    "settingsUpdateHome": {
+        "message": "Actualizar Home Continuamente"
+    },
+    "settingsBeeper": {
+        "message": "Alarma Sonora al Hacer Home"
+    },
+    "settingsVBAT": {
+        "message": "Voltaje Batería"
+    },
+    "settingsVBATScale": {
+        "message": "Escala (1 - 255)"
+    },
+    "settingsVBATMinCellVoltage": {
+        "message": "Voltaje Mínimo por Celda (Ejemplo: 3.3v => 33)"
+    },
+    "settingsVBATMaxCellVoltage": {
+        "message": "Voltaje Máximo por Celda (Ejemplo: 4.2v => 42)"
+    },
+    "settingsVBATWarningCellVoltage": {
+        "message": "Voltaje de Alarma por Celda (Ejemplo: 3.7v => 37)"
+    },
+    "settingsRSSI": {
+        "message": "Señal RSSI"
+    },
+    "settingsRSSIScale": {
+        "message": "Escala (1 - 255)"
+    },
+    "settingsRSSIZoom": {
+        "message": "Zoom (1 - 100)"
+    },
+    "settingsNOPID": {
+        "message": "Control NOPID"
+    },
+    "settingsNOPIDMinDelta": {
+        "message": "Angulo Mínimo (0.0 - 100.0º)"
+    },
+    "settingsNOPIDMapAngle": {
+        "message": "Angulo Mapeado (0 - 180º)"
+    },
+    "settingsNOPIDMaxSpeed": {
+        "message": "Máximo Incremento del Pulso (0 - 500 usec)"
+    },
+    "settingsEASING": {
+        "message": "Amortiguación Servo Tilt"
+    },
+    "settingsEASINGFunction": {
+        "message": "Función"
+    },
+    "settingsEASINGSteps": {
+        "message": "Pasos (0 - 100)"
+    },
+    "settingsEASINGMilliseconds": {
+        "message": "Milisegundos por Paso (1 - 100)"
+    },
+    "settingsEASINGMinAngle": {
+        "message": "Angulo Mínimo (1 - 10º)"
+    },
+	"settingsSOFTSERIAL": {
+        "message": "Puertos SoftSerial"
+    },
+	"settingsTelemetryRelaying": {
+        "message": "Reenviar Telemetría"
+    },
+	"settingsTelemetryRelayingPort": {
+        "message": "Puerto"
+    },
+	"settingsTelemetryRelayingProtocol": {
+        "message": "Protocolo"
+    },
+	"settingsTelemetryRelayingBauds": {
+        "message": "Baudios"
+    },
+	"settingsTelemetryRelayingWarning": {
+        "message": "Habilite los puertos SOFTSERIAL."
+    },
+	"settingsEPS": {
+        "message": "Estimación de Posición"
+    },
+	"settingsEPSMode": {
+        "message": "Modo"
+    },
+	"settingsEPSDistanceGain": {
+        "message": "Ganancia de Distancia (1 - 1000)"
+    },
+	"settingsEPSFrequency": {
+        "message": "Frequencia (100 - 1000 msec)"
+    },
+	"settingsEPSInterpolation": {
+        "message": "Interpolación"
+    },
+	"settingsEPSHeadingGain": {
+        "message": "Ganancia de Rumbo (1 - 1000)"
+    },
+	"settingsEPSSpeedGain": {
+        "message": "Ganancia de Velocidad (1 - 1000)"
     }
 }
